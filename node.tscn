@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dj1osrfulndlc"]
+
+[ext_resource type="Script" path="res://script/Node.gd" id="1_62prf"]
+[ext_resource type="Script" path="res://CharacterBody2D.gd" id="2_0looq"]
+[ext_resource type="Texture2D" uid="uid://h32by2m28pcv" path="res://monito (1).png" id="3_r2phe"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_ly0uq"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_62prf")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+light_mask = 9
+visibility_layer = 9
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(403, 273)
+script = ExtResource("2_0looq")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(111, 51.1328)
+scale = Vector2(2.5, 0.388629)
+texture = SubResource("ImageTexture_ly0uq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+
+[node name="Icon" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(101, 3)
+texture = ExtResource("3_r2phe")
