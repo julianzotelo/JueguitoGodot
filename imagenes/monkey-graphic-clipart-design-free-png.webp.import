@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d3r2uet4uymue"
-path="res://.godot/imported/monkey-graphic-clipart-design-free-png.webp-4e561cebdf8dde4262e0c183614cae9e.ctex"
+path="res://.godot/imported/monkey-graphic-clipart-design-free-png.webp-505eaf550dd89ba02c3aeaf1cf6ccd6b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://monkey-graphic-clipart-design-free-png.webp"
-dest_files=["res://.godot/imported/monkey-graphic-clipart-design-free-png.webp-4e561cebdf8dde4262e0c183614cae9e.ctex"]
+source_file="res://imagenes/monkey-graphic-clipart-design-free-png.webp"
+dest_files=["res://.godot/imported/monkey-graphic-clipart-design-free-png.webp-505eaf550dd89ba02c3aeaf1cf6ccd6b.ctex"]
 
 [params]
 
