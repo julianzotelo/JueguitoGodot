@@ -1,8 +1,47 @@
-[gd_scene load_steps=4 format=3 uid="uid://dj1osrfulndlc"]
+[gd_scene load_steps=8 format=3 uid="uid://dj1osrfulndlc"]
 
 [ext_resource type="Script" path="res://script/Node.gd" id="1_62prf"]
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="2_0looq"]
-[ext_resource type="Texture2D" uid="uid://d3r2uet4uymue" path="res://monkey-graphic-clipart-design-free-png.webp" id="3_53le6"]
+[ext_resource type="Texture2D" uid="uid://d3r2uet4uymue" path="res://imagenes/monkey-graphic-clipart-design-free-png.webp" id="3_53le6"]
+
+[sub_resource type="Animation" id="Animation_2y4mw"]
+resource_name = "agrendar-achicar"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.119351, 0.0828715), Vector2(0.349, 0.243)]
+}
+
+[sub_resource type="Animation" id="Animation_cehip"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.119351, 0.0828715)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ngqiq"]
+_data = {
+"RESET": SubResource("Animation_cehip"),
+"agrendar-achicar": SubResource("Animation_2y4mw")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6f0di"]
+size = Vector2(128, 161.5)
 
 [node name="Node" type="Node"]
 script = ExtResource("1_62prf")
@@ -16,8 +55,17 @@ position = Vector2(403, 273)
 script = ExtResource("2_0looq")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(-1, 1.00001)
-scale = Vector2(0.224797, 0.177988)
+position = Vector2(-1, -7.62939e-06)
+scale = Vector2(0.119351, 0.0828715)
 texture = ExtResource("3_53le6")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D/Sprite2D"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_ngqiq")
+}
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+visible = false
+position = Vector2(-213, -43)
+shape = SubResource("RectangleShape2D_6f0di")
