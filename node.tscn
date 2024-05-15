@@ -4,44 +4,70 @@
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="2_0looq"]
 [ext_resource type="Texture2D" uid="uid://d3r2uet4uymue" path="res://imagenes/monkey-graphic-clipart-design-free-png.webp" id="3_53le6"]
 
-[sub_resource type="Animation" id="Animation_2y4mw"]
-resource_name = "agrendar-achicar"
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_suv11"]
+radius = 42.0
+height = 100.0
+
+[sub_resource type="Animation" id="Animation_sis13"]
+resource_name = "Flip"
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0.119351, 0.0828715), Vector2(0.349, 0.243)]
+"values": [Vector2(180, -10), Vector2(180, -100), Vector2(180, -10)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [6.28319, 2.74889, 0.0]
 }
 
-[sub_resource type="Animation" id="Animation_cehip"]
+[sub_resource type="Animation" id="Animation_m7xri"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.119351, 0.0828715)]
+"values": [Vector2(403, 273)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ngqiq"]
 _data = {
-"RESET": SubResource("Animation_cehip"),
-"agrendar-achicar": SubResource("Animation_2y4mw")
+"Flip": SubResource("Animation_sis13"),
+"RESET": SubResource("Animation_m7xri")
 }
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6f0di"]
-size = Vector2(128, 161.5)
 
 [node name="Node" type="Node"]
 script = ExtResource("1_62prf")
@@ -52,20 +78,21 @@ visibility_layer = 9
 texture_filter = 1
 texture_repeat = 1
 position = Vector2(403, 273)
+scale = Vector2(1.055, 1.055)
 script = ExtResource("2_0looq")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(-1, -7.62939e-06)
+position = Vector2(-1.19209e-07, -9.53674e-07)
 scale = Vector2(0.119351, 0.0828715)
 texture = ExtResource("3_53le6")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D/Sprite2D"]
-root_node = NodePath("../..")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+visible = false
+position = Vector2(0, -4.76837e-06)
+shape = SubResource("CapsuleShape2D_suv11")
+one_way_collision_margin = 27.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D"]
 libraries = {
 "": SubResource("AnimationLibrary_ngqiq")
 }
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-visible = false
-position = Vector2(-213, -43)
-shape = SubResource("RectangleShape2D_6f0di")
