@@ -13,7 +13,7 @@ resource_name = "Flip"
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = false
+tracks/0/enabled = true
 tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -112,7 +112,7 @@ scale = Vector2(1.055, 1.055)
 script = ExtResource("2_0looq")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(-3.93391e-06, 1.90735e-06)
+position = Vector2(-162.365, 100.87)
 scale = Vector2(0.119351, 0.0828715)
 texture = ExtResource("3_53le6")
 
