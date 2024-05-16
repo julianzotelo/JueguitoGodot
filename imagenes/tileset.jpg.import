@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gatcoosq1ycs"
-path="res://.godot/imported/monkey-graphic-clipart-design-free-png.webp-505eaf550dd89ba02c3aeaf1cf6ccd6b.ctex"
+uid="uid://dgpqn5n81neeg"
+path="res://.godot/imported/tileset.jpg-bda0482c89823c5f89a9186a157d8355.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imagenes/monkey-graphic-clipart-design-free-png.webp"
-dest_files=["res://.godot/imported/monkey-graphic-clipart-design-free-png.webp-505eaf550dd89ba02c3aeaf1cf6ccd6b.ctex"]
+source_file="res://imagenes/tileset.jpg"
+dest_files=["res://.godot/imported/tileset.jpg-bda0482c89823c5f89a9186a157d8355.ctex"]
 
 [params]
 
