@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dj1osrfulndlc"]
+[gd_scene load_steps=10 format=3 uid="uid://dj1osrfulndlc"]
 
 [ext_resource type="Script" path="res://script/Node.gd" id="1_62prf"]
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="2_0looq"]
 [ext_resource type="Texture2D" uid="uid://d3r2uet4uymue" path="res://imagenes/monkey-graphic-clipart-design-free-png.webp" id="3_53le6"]
+[ext_resource type="Script" path="res://CharacterBody2D2.gd" id="4_nqw02"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_suv11"]
 radius = 42.0
@@ -126,3 +127,6 @@ one_way_collision_margin = 27.0
 libraries = {
 "": SubResource("AnimationLibrary_ngqiq")
 }
+
+[node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
+script = ExtResource("4_nqw02")
