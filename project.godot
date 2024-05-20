@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 Global="*res://Global.gd"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
+
 [input]
 
 ui_accept={

@@ -18,10 +18,10 @@ func _physics_process(delta):
 
 	motion.y -= gravity
 	
-	if Input.is_action_pressed("ui_accept"):
-		$AnimationPlayer.play("Flip")
-	else:
-		$AnimationPlayer.play("idle")
+	#if Input.is_action_pressed("ui_accept"):
+		#$AnimationPlayer.play("Flip")
+	#else:
+		#$AnimationPlayer.play("idle")
 		
 	if Input.is_action_just_pressed("ui_accept"):
 		velocity.y = JUMP_VELOCITY
@@ -35,3 +35,7 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, MoveSpeed)
 
 	move_and_slide()
+
+
+func _on_mouse_exited():
+	$".".rotate(300)
