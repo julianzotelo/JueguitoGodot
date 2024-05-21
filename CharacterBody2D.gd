@@ -17,17 +17,21 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _physics_process(delta):
 
 	motion.y -= gravity
+	velocity.y += gravity * delta*0.7
 	
-	#if Input.is_action_pressed("ui_accept"):
-		#$AnimationPlayer.play("Flip")
-	#else:
-		#$AnimationPlayer.play("idle")
-		
-	if Input.is_action_just_pressed("ui_accept"):
-		velocity.y = JUMP_VELOCITY
-	if not is_on_floor():
-		velocity.y += gravity * delta
+	if  is_on_floor():
+		if Input.is_action_just_pressed("ui_accept"):
+			velocity.y = JUMP_VELOCITY
+			$Sprite2D/Anim.play("Flip")
 
+		
+	if  Input.is_action_just_pressed("ui_left"):
+		$Sprite2D.flip_h = true
+	elif  Input.is_action_just_pressed("ui_right"):
+		$Sprite2D.flip_h = false
+		
+		
+		
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * MoveSpeed
@@ -35,7 +39,18 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, MoveSpeed)
 
 	move_and_slide()
+	#animaciones()
+
+#func animaciones():
+	#if is_on_floor():
+		#if velocity.x != 0:
+			#$Anim.play("idle")
+		#else:
+			#$Anim.play("idle")
+	#else:
+		#$Anim.play("Flip")
 
 
-func _on_mouse_exited():
-	$".".rotate(300)
+
+func _on_animation_player_animation_finished(anim_name):
+	$Sprite2D/Anim.play("idle")
